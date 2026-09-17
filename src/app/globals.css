@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --color-up: #3ee0a0;
+  --color-down: #ff6b8a;
+  --color-gold: #e7c27d;
+  --color-ink: #e8eef7;
+  --color-mute: #8b98ad;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: #05070c;
+  color: #e8eef7;
+  font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 520px at 8% -10%, rgba(56, 189, 248, 0.14), transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, rgba(16, 185, 129, 0.1), transparent 50%),
+    radial-gradient(800px 480px at 80% 110%, rgba(244, 63, 94, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 30%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+#app-root {
+  position: relative;
+  z-index: 1;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(16, 22, 34, 0.88), rgba(10, 14, 22, 0.78));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.glow-up {
+  border-color: rgba(62, 224, 160, 0.7) !important;
+  box-shadow:
+    0 0 0 1px rgba(62, 224, 160, 0.35),
+    0 0 34px rgba(62, 224, 160, 0.22);
+}
+
+.glow-down {
+  border-color: rgba(255, 107, 138, 0.72) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 107, 138, 0.32),
+    0 0 34px rgba(255, 107, 138, 0.22);
+}
+
+.ticker-up {
+  color: #3ee0a0;
+}
+
+.ticker-down {
+  color: #ff6b8a;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #3ee0a0;
+  box-shadow: 0 0 12px #3ee0a0;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+
+select,
+input {
+  color-scheme: dark;
+}
